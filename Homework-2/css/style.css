@@ -1,5 +1,95 @@
+@font-face {
+  font-family: "IU main font";
+  src: url("/assets/fonts/BentonSans-Regular_T.ttf");
+}
+@font-face {
+  font-family: "IU compressed font";
+  src: url("/assets/fonts/BentonSansCompressed-Black_T.ttf");
+}
+@font-face {
+  font-family: "IU condensed font";
+  src: url("/assets/fonts/BentonSansCondensed-Black_T.ttf");
+}
+@font-face {
+  font-family: "IU condensed bold font";
+  src: url("/assets/fonts/BentonSansCondensed-Bold_T.ttf");
+}
+body {
+  margin: 0;
+}
+
 nav {
-  background-color: orange;
+  font-family: "IU main font";
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #ffffff;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+nav .logo-header {
+  display: flex;
+  align-items: center;
+}
+nav img {
+  height: 100%;
+}
+nav form {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+nav form input {
+  height: 50%;
+  border-radius: 20px;
+  border: 2px solid #990000;
+}
+nav form input[type=text] {
+  padding-left: 10px;
+}
+nav form input::placeholder {
+  padding-left: 0px;
+}
+nav form button {
+  background-color: #ffffff;
+  height: 50%;
+  border-radius: 5px;
+  border: 2px #990000 solid;
+  transition-duration: 0.3s;
+}
+nav form button:hover {
+  background-color: #990000;
+  color: #ffffff;
+}
+nav a {
+  display: flex;
+  align-items: center;
+  color: #000000;
+  text-decoration: none;
+}
+
+main {
+  height: calc(100vh - 50px);
+  width: 100%;
+  background-color: #990000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main h5 {
+  font-size: 72px;
+  font-family: "IU condensed bold font";
+  font-kerning: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+main p {
+  font-family: "IU main font";
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 100;
+  font-kerning: none;
 }
 
 /*# sourceMappingURL=style.css.map */

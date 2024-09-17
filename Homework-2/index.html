@@ -8,9 +8,22 @@
 </head>
 <body>
     <nav>
-        <h1>Weather API</h1>
+        <div class="logo-header">
+        <img src="assets/img/iu-trident-promo-red.png" alt="IU's Trident Logo in red">
+        <h4>IU Weather App</h4>
+    </div>
+        <form>
+            <input type="text" id="forecast" placeholder="Enter a city or zip code...">
+            <button id="forecastSearch">Get Forecast for Area</button>
+        </form>
+        <a href="#">Login</a><a href="#">Sign Up</a>
     </nav>
+    <main id="results">
+        <h5>IU's Weather App</h5>
+        <p>Enter your zip code or city to get a five-day forecast for your area.</p>
+    </main>
     <script src="lib/jquery-3.7.1.js"></script>
+    <script type="module" src="model/api.js"></script>
     <script type="module" src="model/model.js"></script>
     <script type="module" src="app/app.js"></script>
 </body>

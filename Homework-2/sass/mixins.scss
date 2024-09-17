@@ -1,0 +1,14 @@
+@use 'variables';
+@mixin iu-button {
+    background-color: variables.$cream;
+    height: 50%;
+    border-radius: 5px;
+    border: 2px variables.$crimson solid;
+    transition-duration: 0.3s;
+   
+}
+
+@mixin iu-button-hover {
+    background-color: variables.$crimson;
+            color: variables.$cream;
+}
