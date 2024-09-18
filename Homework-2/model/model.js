@@ -46,6 +46,7 @@ $.each(data.forecast.forecastday, function (idx, day) {
     ${day.day.daily_will_it_snow == 1 ? `<p>${day.day.daily_chance_of_snow}% Chance of snow</p>` : "" }
     <p class="high-daily">High of ${isFahrenheit == true ? day.day.maxtemp_f : day.day.maxtemp_c}&deg;</p>
     <p class="low-daily">Low of ${isFahrenheit == true ? day.day.mintemp_f : day.day.mintemp_c}&deg;</p>
+    <p>Sunrise:<br> ${day.astro.sunrise} <br> Sunset:<br> ${day.astro.sunset}</p>
     </div>`)
    
 })
