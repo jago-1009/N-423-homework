@@ -34,6 +34,7 @@ nav {
         }
         button {
             @include mixins.iu-button;
+            cursor: pointer;
         }
         button:hover {
             @include mixins.iu-button-hover;
