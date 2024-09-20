@@ -1,18 +1,18 @@
 @font-face {
   font-family: "IU main font";
-  src: url("/assets/fonts/BentonSans-Regular_T.ttf");
+  src: url("../assets/fonts/BentonSans-Regular_T.ttf");
 }
 @font-face {
   font-family: "IU compressed font";
-  src: url("/assets/fonts/BentonSansCompressed-Black_T.ttf");
+  src: url("../assets/fonts/BentonSansCompressed-Black_T.ttf");
 }
 @font-face {
   font-family: "IU condensed font";
-  src: url("/assets/fonts/BentonSansCondensed-Black_T.ttf");
+  src: url("../assets/fonts/BentonSansCondensed-Black_T.ttf");
 }
 @font-face {
   font-family: "IU condensed bold font";
-  src: url("/assets/fonts/BentonSansCondensed-Bold_T.ttf");
+  src: url("../assets/fonts/BentonSansCondensed-Bold_T.ttf");
 }
 body {
   margin: 0;

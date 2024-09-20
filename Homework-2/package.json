@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "jqvm": "^4.6.2",
     "sass": "^1.78.0"
   },
   "scripts": {
