@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <div class="inputs">
     <form action="" id="enterForm">
         <label for="fName">First Name</label>
         <input type="text" name="fName" id="fName">
@@ -20,8 +21,19 @@
         <input type="text" name="classes" id="classes">
         <button type="submit" id="addToStorage">Add to Storage</button>
     </form>
+    <form action="" id="searchForm">
+        <label for="search">Search for a Student</label>
+        <label for="search">Enter the Student's ID.</label>
+        <input type="text" name="search" id="search">
+        <button type="submit" id="searchBtn">Search</button>
+        <button id="getAllStudents">Get All Students</button>
+
+
+
+    </form>
+</div>
     <div class="results">
-    <button id="getAllStudents">Get All Students</button>
+    
 
     <div id="studentList"></div>
     </div>

@@ -1,28 +1,43 @@
-#enterForm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.inputs {
     width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#enterForm input {
-
+#enterForm {
+    
+    display: flex;
+   
+    
+    flex-direction: column;
+    
+}
+#enterForm input, #searchForm input {
+    width:50%;
     height:50px;
     margin-bottom: 20px;
     border-radius: 10px;
     text-align: center;
     font-size:24px;
 }
-#enterForm label {
+#enterForm label, #searchForm label {
+    margin-bottom: 10px;
    font-size:30px;
 }
-#enterForm button, #getAllStudents {
-    width:25%;
+#enterForm button, #getAllStudents, #searchBtn {
+    width:50%;
     height:100px;
     font-size: 30px;
     border-radius: 10px;
     background-color: plum;
     cursor: pointer;
+}
+
+#searchForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 .results {
     display: flex;
@@ -34,4 +49,12 @@
 #getAllStudents {
     margin-top: 50px;
     cursor: pointer;
+}
+#studentList {
+    width:100%;
+    display:flex;
+   
+    justify-content: space-around;
+    
+    font-size: 24px;
 }

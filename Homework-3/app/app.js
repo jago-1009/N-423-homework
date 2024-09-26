@@ -19,6 +19,10 @@ function initListeners() {
         e.preventDefault();
         getAllStudents()
     })
+    $("#searchBtn").on("click", (e) => {
+        e.preventDefault();
+        searchStudent()
+    })
 }
 function validateForms(fName, lName, phone, email, classes) {
 let fNameTrans = fName.trim()
@@ -120,21 +124,51 @@ function validateEmail(email) {
     allStudents.push(studentObj)
     localStorage.setItem("Students", JSON.stringify(allStudents))
   }
+  function searchStudent() {
+    let search = $("#search").val()
+    if (search == "") {
+        alert("Please enter an ID.")
+        throw new Error("ID not found")
+    }
+    let allUsers = JSON.parse(localStorage.getItem("Students"))    
+    let user = allUsers[search - 1]
+    if (!user) {
+        alert("User not Found")
+        throw new Error("User not found")
+    }
+    $("#studentList").html("") 
+    let userString = "";
+    userString += "<div class='user'>";
+    userString += "<p>";
+    userString += `user ID: ${search}<br>`
+    userString += `Name: ${user.fName} ${user.lName}<br>Phone: ${user.phone}<br>Email: ${user.email}<br> Classes: <ul>`
+     $.each(user.classes, function (index, value) {
+    userString += "<li>" + value + "</li>"
+     })
+     userString += "</ul>"
+     userString += '</p>'
+     userString += "</div>"
+     $("#studentList").append(userString)
+  }
   function getAllStudents() {
     $("#studentList").html("") 
     let allUsers = JSON.parse(localStorage.getItem("Students"))    
     let userString = "";
+    console.log(allUsers)
     $.each(allUsers, function (idx, user) { 
+        userString += "<div class='user'>";
         userString += "<p>";
+        userString += `user ID: ${idx + 1}<br>`
         userString += `Name: ${user.fName} ${user.lName}<br>Phone: ${user.phone}<br>Email: ${user.email}<br> Classes: <ul>`
          $.each(user.classes, function (index, value) {
         userString += "<li>" + value + "</li>"
          })
          userString += "</ul>"
          userString += '</p>'
-         $("#studentList").append(userString)
+         userString += "</div>"
     });
-  
+    $("#studentList").append(userString)
+
  }
 $("document").ready((e)=> {
     initListeners();
