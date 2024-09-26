@@ -1,0 +1,37 @@
+#enterForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+}
+#enterForm input {
+
+    height:50px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size:24px;
+}
+#enterForm label {
+   font-size:30px;
+}
+#enterForm button, #getAllStudents {
+    width:25%;
+    height:100px;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: plum;
+    cursor: pointer;
+}
+.results {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+#getAllStudents {
+    margin-top: 50px;
+    cursor: pointer;
+}

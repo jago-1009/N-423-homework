@@ -23,7 +23,7 @@ export function listenForm() {
 function getForecast(area) {
     
 $.getJSON(APIURL + area + trail,function(data) {
-    
+    console.log(data)
 $("#results").html(
     `<h5 class="title">Forecast for ${data.location.name}, ${data.location.region}</h5>
     <h5 class="country">${data.location.country}</h5>
@@ -35,7 +35,7 @@ $.each(data.forecast.forecastday, function (idx, day) {
     let dayDate = new Date(day.date)
     let dayOfWeek = dayDate.getDay()
     // console.log(dayOfWeek)
-    // console.log(day)
+ 
     $(".forecast").append(`<div class="card" id="${idx}">
     <img src="${day.day.condition.icon}" alt="${day.day.condition.text}" height = "100px" >
     
