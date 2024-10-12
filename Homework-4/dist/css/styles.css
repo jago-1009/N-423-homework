@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Papyrus", fantasy;
+  background-color: antiquewhite;
+  height: 100%;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-bottom: 16px;
+}
+
+#app {
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  background-color: antiquewhite;
+}
+
+.home {
+  padding: 50px;
+}
+
+.genreSelect {
+  text-align: center;
+  margin: 0 auto;
+}
+.genreSelect label {
+  font-weight: bold;
+}
+.genreSelect select {
+  background-color: antiquewhite;
+}
+.genreSelect option {
+  font-family: "Papyrus", fantasy;
+  font-weight: bold;
+}
+.genreSelect #genre {
+  font-family: "Papyrus", fantasy;
+  font-weight: bold;
+}
+.genreSelect option[selected] {
+  font-family: "Papyrus", fantasy;
+  font-weight: bold;
+}
+
+.albumTable, th {
+  margin: 0 auto;
+  width: 80%;
+  border: 2px solid black;
+}
+
+.albumRow td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 20px;
+}
+
+nav {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 50px;
+}
+nav a {
+  font-family: "papyrus", fantasy;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.addForm form {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+.addForm form input[type=submit] {
+  margin: 20px;
+  width: 50px;
+  background-color: antiquewhite;
+}
+.addForm form input {
+  font-family: "Papyrus", fantasy;
+  font-weight: bold;
+}

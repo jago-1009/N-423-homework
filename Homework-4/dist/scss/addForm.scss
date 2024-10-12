@@ -1,0 +1,15 @@
+.addForm form{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    input[type="submit"] {
+        margin:20px;
+        width:50px;
+        background-color:antiquewhite;
+    }
+    input {
+        font-family: 'Papyrus', fantasy;
+        font-weight: bold;
+    }
+}

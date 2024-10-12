@@ -1,0 +1,45 @@
+
+#app {
+    padding:20px;
+    height:100%;
+    width: 100%;
+    background-color: antiquewhite;
+}
+.home {
+    padding:50px;
+}
+.genreSelect {
+    label {
+        font-weight: bold;
+    }
+    select {
+        background-color: antiquewhite;
+    }
+    option {
+        font-family: 'Papyrus', fantasy;
+        font-weight: bold;
+    }
+    #genre {
+        font-family: 'Papyrus', fantasy;
+        font-weight: bold;
+    }
+    option[selected] {
+        font-family: 'Papyrus', fantasy;
+        font-weight: bold;
+    }
+    text-align: center;
+    margin: 0 auto;
+}
+
+.albumTable, th {
+    margin: 0 auto;
+    width:80%;
+    
+    border:2px solid black;
+}
+.albumRow td {
+    border: 1px solid black;
+}
+th,td {
+    padding:20px;
+}

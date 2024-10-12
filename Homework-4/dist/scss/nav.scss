@@ -1,0 +1,16 @@
+nav {
+    padding:0px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height:50px;
+
+    a {
+        font-family:'papyrus',fantasy;
+        color:black;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 100%;
+    }
+}

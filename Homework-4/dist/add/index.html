@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <nav>
+        <a href="/">View all Albums</a>
+        <a href="/add">Add Album</a>
+      </nav>
+      <div class="addForm">
+       
+        <form action="#">
+            <label for="aName">Album Name:</label>
+            <input type="text" id="aName">
+            <label for="aName">Album Cover URL:</label>
+            <input type="text" id="aCover">
+            <label for="aName">Album Artist:</label>
+            <input type="text" id="aArtist">
+            <label for="aName">Album Release Date:</label>
+            <input type="date" id="aDate">
+            <label for="aName">Album Genre:</label>
+            <select id="aGenre">
+                <option selected>--</option>
+                <option>Rock</option>
+                <option>R&B</option>
+                <option>Jazz</option>
+                </select>
+            <input type="submit" value="Submit" id="addBtn">
+        </form>
+      </div>
+     </div>
+    <!-- <script src="lib/jquery-3.7.1.min.js"></script> -->
+    <script src="../app/app.js"></script>
+  </body>
+</html>
