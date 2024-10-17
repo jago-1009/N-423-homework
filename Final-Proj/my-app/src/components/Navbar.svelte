@@ -4,7 +4,6 @@
     import { Hamburger } from "svelte-hamburgers";
     import { signOut, getAuth } from "firebase/auth";
     import MobileNav from "./MobileNav.svelte";
-    import defaulticon from '../assets/img/profile-icon-default.png'
     const auth = getAuth(app)
     let width;
     let open;
