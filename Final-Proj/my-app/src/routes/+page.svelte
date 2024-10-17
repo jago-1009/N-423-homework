@@ -1,6 +1,6 @@
 <script>
 import Navbar from '../components/Navbar.svelte';
-import {app} from '../app/firebaseConfig'
+import {app} from '../app/firebaseConfig.js'
 import {getAuth,onAuthStateChanged} from 'firebase/auth'
 
 let user;

@@ -1,6 +1,6 @@
 <script>
     import DesktopNav from "./DesktopNav.svelte";
-    import {app} from '../app/firebaseConfig'
+    import {app} from '../app/firebaseConfig.js'
     import { Hamburger } from "svelte-hamburgers";
     import { signOut, getAuth } from "firebase/auth";
     import MobileNav from "./MobileNav.svelte";

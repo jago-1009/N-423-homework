@@ -1,6 +1,6 @@
 <script>
     import Navbar from "../../components/Navbar.svelte";
-    import { app } from "../../app/firebaseConfig";
+    import { app } from "../../app/firebaseConfig.js";
     import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword,GoogleAuthProvider, onAuthStateChanged, updateProfile} from 'firebase/auth'
     import ErrorModal from "../../components/ErrorModal.svelte";
     let user;
