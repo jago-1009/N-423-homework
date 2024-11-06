@@ -1,8 +1,9 @@
 <script>
 
-    export let user;
     import {fly} from 'svelte/transition'
-    export let signOutUser;
+    import { getContext } from 'svelte';
+    let user = getContext('user')
+
     </script>
     <div class="nav-mobile">
     <nav transition:fly>
@@ -11,34 +12,19 @@
         <input type="text" placeholder="Search for items...">
         <button id="searchBtn">Search</button>
         </div>
-        <a href="/chat">Chat</a>
-        {#if user}
+        {#if user.isAdmin}
+        <a href="/admin">View Group Orders</a>
+        {/if}
+        {#if user.isSignedIn}
         <!-- <img src={imageSrc} alt=""> -->
-        <a id="logout" href="#" on:click={signOutUser}>Log Out</a>
+        <a id="logout" href="#" on:click={getContext('signOutUser').signOutUser()}>Log Out</a>
         {:else}
         <a href="/login">Log In/Sign Up</a>
         {/if}
         </nav>
     </div>
         <style>
-            @font-face {
-        font-family: 'Cardo';
-        src: url('../fonts/Cardo-Regular.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
-    @font-face {
-        font-family: 'Cardo';
-        src: url('../fonts/Cardo-Bold.ttf') format('truetype');
-        font-weight: bold;
-        font-style: normal;
-    }
-    @font-face {
-        font-family: 'Cardo';
-        src: url('../fonts/Cardo-Italic.ttf') format('truetype');
-        font-weight: normal;
-        font-style: italic;
-    }
+        
             nav {
                 display: flex;
                 align-items: center;
@@ -46,7 +32,7 @@
                 height:200px;
                 flex-direction: column;
                 font-family: 'Cardo';
-        font-size: 24px;
+        font-size: 16px;
         padding: 0;
         margin-top:0px;
         background-color: #2E2E2E;

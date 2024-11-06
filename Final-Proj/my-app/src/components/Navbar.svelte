@@ -1,41 +1,34 @@
 <script>
     import DesktopNav from "./DesktopNav.svelte";
-    import {app} from '../app/firebaseConfig.js'
     import { Hamburger } from "svelte-hamburgers";
     import { signOut, getAuth } from "firebase/auth";
     import MobileNav from "./MobileNav.svelte";
-    const auth = getAuth(app)
-    let width;
-    let open;
-    export let user;
-    function signOutUser() {
-        console.log("USER")
-        signOut(auth).then(() => {
-            user = null
-            console.log("user signed out")
-            window.location.href = "/login"
-        })
-    }
-</script>
+    import {getContext, setContext} from 'svelte';
+    let width = $state(0);
+    let isOpen = $state(false);
+    let user = getContext('user')
+    
 
+
+</script>
 
 <svelte:window bind:innerWidth={width}/>
 {#if width>=800}
-<DesktopNav user = {user} signOutUser = {signOutUser}/>
+<DesktopNav user = {user} />
 {:else}
 <div class="bar">
-<Hamburger bind:open --color="#FFFFF0" --active-color="#FFFFF0"/>
+<Hamburger open={isOpen} onclick={() => isOpen = !isOpen}  --color="#FFFFF0" --active-color="#FFFFF0"/>
 <h1>ArmorCoach</h1>
 <div class="icon">
     {#if user}
     <!-- <img src={icon} alt="icon" width="50" height="50"> -->
     {:else}
+    <!-- <img src={icon} alt="icon" width="50" height="50"> -->
     {/if}
 </div>
 </div>
-{#if open} 
-<MobileNav user={user} signOutUser = {signOutUser}></MobileNav>
-
+{#if isOpen == true}
+<MobileNav user={user} ></MobileNav>
 {/if}
 {/if}
 <style>

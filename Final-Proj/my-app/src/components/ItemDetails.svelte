@@ -1,5 +1,7 @@
 <script>
-import {key,app} from '../app/firebaseConfig.js'
+// import {key,app} from '../app/firebaseConfig.js'
+let key;
+let app;
 import { getMessaging, getToken, onMessage, isSupported } from "firebase/messaging";
 const messaging = async () => (await isSupported()) && getMessaging(app)
 function requestPermission() {

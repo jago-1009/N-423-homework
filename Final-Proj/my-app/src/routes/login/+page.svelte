@@ -1,29 +1,19 @@
 <script>
     import Navbar from "../../components/Navbar.svelte";
-    import { app } from "../../app/firebaseConfig.js";
     import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword,GoogleAuthProvider, onAuthStateChanged, updateProfile} from 'firebase/auth'
     import ErrorModal from "../../components/ErrorModal.svelte";
-    let user;
+    import { getContext } from 'svelte';
+	import { app } from "../../app/firebaseConfig";
     let fName;
     let lName;
     let email;
     let pass;
     let errorShowing = false;
     let errorText = "";
-    let loggedIn = false;
     let pageType = "login";
-    const provider = new GoogleAuthProvider();
-    let auth = getAuth(app)
-    onAuthStateChanged(auth, (auth) => {
-        if (auth) {
-            loggedIn = true
-            user = auth;
-           
-        } else {
-            loggedIn = false;
-        }
-    });
-
+    let user = getContext('user');
+    
+    const auth = getAuth(app);
     function throwError(errorCode) {
         errorShowing = true;
         errorText = errorCode
@@ -67,15 +57,13 @@
 {#if errorShowing}
 <ErrorModal bind:errorShowing errorCode={errorText} />
 {/if}
-<Navbar user={user} />
 <div id="app">
 <div class="form">
-{#if loggedIn}
+{#if user.isSignedIn}
 <div class="loggedIn">
 <h1>You are already logged in. Would you like to log out?</h1>
-
 <div class="card example-1">
-    <input type="submit" value="Log Out" on:click={signOutUser()} class="inner">
+    <input type="submit" value="Log Out" on:click={getContext('signOutUser').signOutUser()} class="inner">
     </div>
 </div>
 {:else}
@@ -119,11 +107,10 @@
     }
     .loggedIn {
         width: 100%;
+        display: flex;
         align-items: center;
         justify-content: space-evenly;
-        height:50px;
-        flex-direction: column;
-        
+        flex-direction: column;        
     }
     .loggedIn h1 {
         text-decoration: none;
@@ -215,6 +202,7 @@
         border:#DAA520 solid 3px;
     }
     .form {
+        display: flex;
         align-items: center;
         justify-content: space-evenly;
         height: 50vh;
