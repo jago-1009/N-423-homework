@@ -28,7 +28,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"firebase": "^11.0.1"
+		"firebase": "^11.0.1",
+		"nodemailer": "^6.9.16"
 	},
 	"description": "Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).",
 	"main": "eslint.config.js",

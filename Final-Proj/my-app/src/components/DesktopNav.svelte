@@ -3,6 +3,12 @@ import {getContext} from 'svelte';
 let user = getContext('user')
 const signOut = getContext('signOutUser').signOutUser
 import logo from '../assets/img/logo.png'
+import defaultProfile from '../assets/img/profile-icon-default.png'
+import ProfileModal from './ProfileModal.svelte';
+let isModalOn = $state(false);
+function setModalOn() {
+    isModalOn = !isModalOn
+}
 </script>
 
 <nav >
@@ -17,11 +23,15 @@ import logo from '../assets/img/logo.png'
         <button id="searchBtn">Search</button>
         </div>
         {#if user.isAdmin}
-        <a href="/admin">View Group Orders</a>
+        <a href="/create">Create Item</a>
         {/if}
 {#if user.isSignedIn}
-<!-- <img src={imageSrc} alt=""> -->
-<a href="#" id="logout" on:click={signOut}>Log Out</a>
+<a href="/cart">My Cart</a>
+
+<a href="#" id="logout" on:click={setModalOn}><img src="{defaultProfile}" alt="profile"></a>
+{#if isModalOn}
+<ProfileModal />
+{/if}
 {:else}
 <a href="/login">Log In/Sign Up</a>
 {/if}
@@ -29,7 +39,10 @@ import logo from '../assets/img/logo.png'
 </div>
 </nav>
 <style>
-    
+    img {
+        height:50px;
+        
+    }
     .left {
         display: flex;
         width: 25%;

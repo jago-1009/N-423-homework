@@ -5,14 +5,18 @@ import { getContext } from 'svelte';
 
 export async function load({ params, url }) {
 
-const key = url.searchParams.get('key');
-const itemName = params.item
- if (!key || !itemName) {
+const itemName = params.entry
+const keyParams = url.searchParams.get('key');
+ if (!itemName) {
     throw error(404, 'Not found');
 }
-        return {
-            key: key,
-            name: itemName,
-        }
+else {
+    console.log("fetching name...")
+    return {
+        key: keyParams,
+        name: itemName,
+    }
+}
+        
     }
 

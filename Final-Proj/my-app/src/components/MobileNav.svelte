@@ -13,10 +13,11 @@
         <button id="searchBtn">Search</button>
         </div>
         {#if user.isAdmin}
-        <a href="/admin">View Group Orders</a>
+        <a href="/create">Create Item</a>
         {/if}
         {#if user.isSignedIn}
         <!-- <img src={imageSrc} alt=""> -->
+        <a href="/cart">My Cart</a>
         <a id="logout" href="#" on:click={getContext('signOutUser').signOutUser()}>Log Out</a>
         {:else}
         <a href="/login">Log In/Sign Up</a>
@@ -58,7 +59,7 @@
         font-family: 'Cardo';
         background-color: #FFFFF0;
         border-radius: 10px;
-        font-size: 24px;
+        font-size: 18px;
         border: 3px solid #DAA520;
         cursor: pointer;
     }

@@ -44,8 +44,12 @@ function signOutUser() {
                 if (user.data().role == 'admin') {
                     // console.log('admin')
                     userState.isAdmin = true;
-                    
-                    // console.log(adminState)
+                }
+                else {
+                    setDoc(doc(db, "users",user.uid), {
+                        role: 'user',
+                        name: userState.userName
+                    })
                 }
             }) 
 

@@ -21,7 +21,7 @@
        align-items: center;
        justify-content: space-evenly;
        flex-direction: column;
-
+        margin:20px;
     }
     .types {
         font-weight: bold;
