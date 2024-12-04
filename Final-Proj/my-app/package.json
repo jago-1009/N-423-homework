@@ -31,7 +31,7 @@
 	"dependencies": {
 		"@sendgrid/mail": "^8.1.4",
 		"firebase": "^11.0.1",
-		"node": "^22.12.0",
+		"node": "^20",
 		"nodemailer": "^6.9.16",
 		"render": "^0.1.4",
 		"svelte-email": "^0.0.4"
