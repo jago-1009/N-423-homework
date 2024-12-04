@@ -40,23 +40,33 @@
 <main class="details">
     <div class="card">
 <h1>{data.name}</h1>
-<img class="image" src={data.image || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhRzDiQGWWvwwyr_M9KCZlLE3SNZ7b33rr-Q&s"} alt={data.name}>
+<img class="image" src={data.imageUrl || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhRzDiQGWWvwwyr_M9KCZlLE3SNZ7b33rr-Q&s"} alt={data.name}>
 <p><a class="link" href="{data.url}">{data.url}</a></p>
 <p>{data.desc}</p>
 <h2>Manufacturer: {data.manufacturer}</h2>
 <h2>Sold By: {data.distributor}</h2>
+<div class="btns">
 {#if user && user.isSignedIn}
 <button class="addBtn" on:click={addToCart}><span>Add to Group Order</span></button>
 {/if}
 {#if user.isAdmin}
-<button class="editBtn"><a href='/edit/{data.name}?key={data.type}'><span>Edit Entry</span></a></button>
+<button class="editBtn"><a class="edit" href='/edit/{data.name}?key={data.type}'><span>Edit Entry</span></a></button>
 
 {/if}
 </div>
-
+</div>
 </main>
 
 <style>
+    .edit {
+        text-decoration: none;
+        color: var(--background-color);
+        
+    }
+    .editBtn {
+
+        bottom:10px;
+    }
     .link {
         text-decoration: none;
         color: var(--main-color);

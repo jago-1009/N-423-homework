@@ -9,6 +9,7 @@ let isModalOn = $state(false);
 function setModalOn() {
     isModalOn = !isModalOn
 }
+let query = $state('')
 </script>
 
 <nav >
@@ -19,16 +20,16 @@ function setModalOn() {
 </div>
 <div class="links">
     <div class="searchbox">
-        <input type="text" placeholder="Search for items...">
-        <button id="searchBtn">Search</button>
+        <input bind:value={query} type="text" placeholder="Search for items...">
+        <button id="searchBtn"onclick ={() => window.location.href = `/search/${query}`}>Search</button>
         </div>
         {#if user.isAdmin}
-        <a href="/create">Create Item</a>
+        <a href="/create" >Create Item</a>
         {/if}
 {#if user.isSignedIn}
 <a href="/cart">My Cart</a>
 
-<a href="#" id="logout" on:click={setModalOn}><img src="{defaultProfile}" alt="profile"></a>
+<a href="#" id="logout" onclick={setModalOn}><img src="{defaultProfile}" alt="profile"></a>
 {#if isModalOn}
 <ProfileModal />
 {/if}

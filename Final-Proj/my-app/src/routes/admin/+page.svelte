@@ -72,17 +72,20 @@ for (const [key, value] of Object.entries(dataObj)) {
        
     })
 </script>
-
+{#if user.isAdmin}
 <h1>Group Orders</h1>
 <div class="orders">
 {#each data as item }
-    <Card imageSrc={item.imageUrl || "https://static.thenounproject.com/png/115013-200.png"} imageAlt={item.name} imageName={item.name} imageTypes={item.types} imagePrice={item.price} imageCollection={item.type} />
+    <Card imageSrc={item.imageUrl || "https://static.thenounproject.com/png/115013-200.png"} imageAlt={item.name} imageName={item.name} imageTypes={item.types} imagePrice={item.price} imageCollection={item.type} orderedBy={item.orderedBy} />
 {/each}
 </div>
 <div class="clear-btn"><button onclick={clearData}>Clear Items</button></div>
+
+{/if}
 <style>
     h1 {
         color: var(--text-color);
+        text-align: center;
     }
     .orders {
         display: flex;

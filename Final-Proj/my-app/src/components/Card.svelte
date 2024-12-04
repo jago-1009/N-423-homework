@@ -1,10 +1,13 @@
 <script>
-    let {imageSrc, imageAlt, imageName, imageTypes, imagePrice,imageCollection} = $props();
+    let {imageSrc, imageAlt, imageName, imageTypes, imagePrice,imageCollection, orderedBy} = $props();
 </script>
 
 <div class="card">
 <img class="img" src={imageSrc} alt={imageAlt}>
 <h3>{imageName}</h3><h3>Types: <div class="types">{imageTypes}</div></h3><h3>{imagePrice}</h3>
+{#if orderedBy}
+<h3>Ordered By: {orderedBy}</h3>
+{/if}
 <a href="/details/{imageName}?key={imageCollection}">Read More</a>
 </div>
 

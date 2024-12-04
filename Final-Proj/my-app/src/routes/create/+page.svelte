@@ -1,22 +1,43 @@
 <script>
    
-    import {getFirestore, collection, addDoc} from 'firebase/firestore'
+    import {getFirestore, collection, addDoc, setDoc, doc} from 'firebase/firestore'
     import {app} from '../../app/firebaseConfig.js'
+    import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
     let db = getFirestore(app);
     let name = $state('')
     let desc = $state('')
-    let image = $state('')
     let manufacturer = $state('')
     let distributor = $state('')
     let price = $state('')
     let type= $state('weapons')
     let url = $state('');
-    
+    let imageUrl = $state('');
+    const storage = getStorage();
+    function uploadFile(file) {
+        
+        const pathRef = ref(storage, `images/${file.name}`);
+        const storageRef = ref(storage,pathRef);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed', 
+        (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log('Upload is ' + progress + '% done');
+        }, 
+        (error) => {
+            console.log(error);
+        }, 
+        () => {
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                imageUrl = downloadURL;
+            });
+        })
+    }
 async function createItem() {
     let item = {
         name: name,
         desc: desc,
-        image: image,
+        imageUrl: imageUrl,
         manufacturer: manufacturer,
         distributor: distributor,
         price: price,
@@ -24,7 +45,9 @@ async function createItem() {
         type: type
     }
     const itemsRef = collection(db, type);
-    await addDoc(itemsRef, item)
+    const dataDoc = doc(itemsRef, item.name);
+    await setDoc(dataDoc, item);
+    return window.location.href = `/details/${name}?key=${type}`
 }
 
 </script>
@@ -36,8 +59,9 @@ async function createItem() {
 <input onchange={e => name = e.target.value} type="text" name="name" id="name">
 <label for="desc">Description</label>
 <textarea name="desc" onchange={e => desc = e.target.value} id="desc" cols="30" rows="10"></textarea>
+<img src={imageUrl} alt="image" width={300}>
 <label for="image">Image</label>
-<input type="file" name="image" id="image" accept="image/*">
+<input type="file" onchange={e => uploadFile(e.target.files[0])} name="image" id="image" accept="image/*">
 <label for="URL">URL:</label>
 <input type="text" value={url} onchange={e => url = e.target.value} name="URL" id="URL">
 <label for="manufacturer">Manufacturer:</label>
@@ -55,6 +79,9 @@ async function createItem() {
 <input onclick={createItem} type="button" value="Create" class="create-btn">
 </div>
 <style>
+    img {
+        margin-top:20px;
+    }
     .create-form {
         display: flex;
         flex-direction: column;
